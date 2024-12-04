@@ -1,17 +1,24 @@
-
-import matplotlib.pyplot as plt
+import plotly.express as px
 import pandas as pd
 
 
 def scatter_plot_on_off(df, option1, option2):
-    plt.scatter(df[option1], df[option2], alpha=0.7, color='red')
-    plt.xlabel(option1)
-    plt.ylabel(option2)
-    plt.title(f"{option1} vs {option2} (Utah on Offense)")
+    fig = px.scatter(
+        df,
+        x=option1,
+        y=option2,
+        color_discrete_sequence=["red"],  # Ensures all points are red
+        title=f"{option1} vs {option2} (Utah on Offense)",
+        labels={option1: option1, option2: option2})
+    return fig
 
 
 def scatter_plot_on_def(df, option1, option2):
-    plt.scatter(df[option1], df[option2], alpha=0.7, color='red')
-    plt.xlabel(option1)
-    plt.ylabel(option2)
-    plt.title(f"{option1} vs {option2} (Utah on Defense)")
+    fig = px.scatter(
+        df,
+        x=option1,
+        y=option2,
+        color_discrete_sequence=["red"],  # Ensures all points are red
+        title=f"{option1} vs {option2} (Utah on Defense)",
+        labels={option1: option1, option2: option2})
+    return fig

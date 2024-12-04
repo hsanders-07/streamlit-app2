@@ -51,12 +51,17 @@ st.title('Numbers Behind Perfection')
 tab1, tab2 = st.tabs(["Utah on Offense", "Utah on Defense"])
 
 with st.sidebar:
-    
+    option1 = st.selectbox(
+    "First Variable",
+    ("scoring", "elapsed", "plays", "start_yards_to_goal", "yards", "drive_result", "off_points_gained"),
+)
+
+    option2 = st.selectbox(
+    "Second Variable",
+    ("scoring", "elapsed", "plays", "start_yards_to_goal", "yards", "drive_result", "off_points_gained"),
+)
 
 
 
-
-    input_name = st.text_input('Enter a name: ')
-    year_input = st.slider("Year", min_value= 1880, max_value= 2023, value= 2000)
-    n_names = st.radio('Number of names per sex', [3, 5, 10])
-    on = st.toggle("Activate features")
+    #n_names = st.radio('Number of names per sex', [3, 5, 10])
+    #on = st.toggle("Activate features")

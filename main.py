@@ -14,12 +14,12 @@ import streamlit as st
 def load_utah_data():
     url = "https://api.collegefootballdata.com/drives?seasonType=regular&year=2008&team=Utah"
 
+    with open('cfb_apikey.txt', 'r') as file:
+        apikey = f"Bearer {file.read()}"
+
     headers = {
     "Authorization": apikey,
     "Content-Type": "application/json"}
-
-    with open('cfb_apikey.txt', 'r') as file:
-        apikey = f"Bearer {file.read()}"
 
     r = requests.get(url, headers=headers)
 

@@ -26,7 +26,7 @@ with st.sidebar:
     
     option3 = st.selectbox(
         "Box Plot Variable",
-        ("scoring", "elapsed", "plays", "start_yards_to_goal", "yards", "off_points_gained")
+        ()
     )
 
 with tab1:
@@ -44,9 +44,11 @@ with tab2:
 
 
 with tab3:
+     options = ["scoring", "elapsed", "plays", "start_yards_to_goal", "yards", "off_points_gained"]
+     selection = st.pills("Variables", options, selection_mode="single")
      utah_off_data = utah_data[utah_data['offense'] == 'Utah'].select_dtypes(include=['number'])
      utah_def_data = utah_data[utah_data['defense'] == 'Utah'].select_dtypes(include=['number'])
-     fig3 = box_plot_on_off(utah_off_data, option3)
-     fig4 = box_plot_on_def(utah_def_data, option3)
+     fig3 = box_plot_on_off(utah_off_data, selection)
+     fig4 = box_plot_on_def(utah_def_data, selection)
      st.plotly_chart(fig3)
      st.plotly_chart(fig4)

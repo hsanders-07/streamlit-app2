@@ -44,8 +44,8 @@ with tab2:
 
 
 with tab3:
-     options = ["scoring", "elapsed", "plays", "start_yards_to_goal", "yards", "off_points_gained"]
-     selection = st.pills("Variables", options, selection_mode="single")
+     options = ["elapsed", "plays", "start_yards_to_goal", "yards", "off_points_gained"]
+     selection = st.pills("Variables", options, selection_mode="single", default='elapsed')
      utah_off_data = utah_data[utah_data['offense'] == 'Utah'].select_dtypes(include=['number'])
      utah_def_data = utah_data[utah_data['defense'] == 'Utah'].select_dtypes(include=['number'])
      fig3 = box_plot_on_off(utah_off_data, selection)

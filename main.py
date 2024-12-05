@@ -57,7 +57,7 @@ with tab3:
      combined_data = pd.concat([utah_off_data2, utah_def_data2])
 
 # Create the box plot with 'Type' as the category
-     fig3 = px.box(combined_data, x='', y=selection, color='Type', 
+     fig3 = px.box(combined_data, x='Type', y=selection, color='Type', 
              title=f"Box Plot of {selection}: Utah on Offense vs Utah on Defense",
              color_discrete_sequence=["red", "white"])  # Customize colors for offense and defense
 

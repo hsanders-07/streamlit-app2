@@ -1,6 +1,7 @@
 import pandas as pd
 from my_plots import *
 import streamlit as st
+from plotly.subplots import make_subplots
 
 @st.cache_data
 def load_utah_data():
@@ -23,11 +24,6 @@ with st.sidebar:
     "Second Variable for Scatterplot",
     ("scoring", "elapsed", "plays", "start_yards_to_goal", "yards", "off_points_gained"),
 )
-    
-    option3 = st.selectbox(
-        "Box Plot Variable",
-        ()
-    )
 
 with tab1:
     utah_off_data = utah_data[utah_data['offense'] == 'Utah'].select_dtypes(include=['number'])
@@ -50,5 +46,24 @@ with tab3:
      utah_def_data = utah_data[utah_data['defense'] == 'Utah'].select_dtypes(include=['number'])
      fig3 = box_plot_on_off(utah_off_data, selection)
      fig4 = box_plot_on_def(utah_def_data, selection)
-     st.plotly_chart(fig3)
-     st.plotly_chart(fig4)
+    #  st.plotly_chart(fig3)
+    #  st.plotly_chart(fig4)
+
+
+
+     fig = make_subplots(rows=1, cols=2, 
+                    subplot_titles=("Utah on Offense", "Utah on Defense"))
+
+    # Add the offense box plot to the first subplot (1,1)
+     for trace in fig3['data']:
+        fig.add_trace(trace, row=1, col=1)
+
+    # Add the defense box plot to the second subplot (1,2)
+     for trace in fig4['data']:
+        fig.add_trace(trace, row=1, col=2)
+
+    # Update the layout
+     fig.update_layout(title_text=f"Box Plots of {selection}: Utah on Offense vs Utah on Defense", showlegend=True)
+
+    # Display the combined figure using Streamlit
+     st.plotly_chart(fig)

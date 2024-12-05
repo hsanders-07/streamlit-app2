@@ -31,7 +31,7 @@ def box_plot_on_off(df, option3):
 
 
 def box_plot_on_def(df, option3):
-    fig3 = px.box(df, y=df[option3], title=f"Box Plot of {option3} when Utah is on Defense", 
+    fig4 = px.box(df, y=df[option3], title=f"Box Plot of {option3} when Utah is on Defense", 
              color_discrete_sequence=["red"])
-    return fig3
+    return fig4
     

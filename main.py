@@ -46,6 +46,6 @@ with tab2:
 with tab3:
      utah_off_data = utah_data[utah_data['offense'] == 'Utah'].select_dtypes(include=['number'])
      utah_def_data = utah_data[utah_data['defense'] == 'Utah'].select_dtypes(include=['number'])
-     fig2 = box_plot_on_off(utah_off_data, option3)
-     fig3 = box_plot_on_def(utah_def_data, option3)
-     st.plotly_chart(fig2, fig3)
+     fig3 = box_plot_on_off(utah_off_data, option3)
+     fig4 = box_plot_on_def(utah_def_data, option3)
+     st.plotly_chart(fig3, fig4)

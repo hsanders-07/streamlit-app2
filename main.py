@@ -62,7 +62,7 @@ with tab3:
              color_discrete_sequence=["red", "white"])  # Customize colors for offense and defense
 
 # Show the plot
-     fig3.show()
+     st.plotly_chart(fig3)
 
 
 
